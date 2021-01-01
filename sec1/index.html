@@ -4,6 +4,15 @@
     <script>
         setInterval(function(){
             document.getElementById('output').innerHTML += (Date.now() + '<br>');}, 1000);
+        
+        window.addEventListener('message', event => {
+            // IMPORTANT: check the origin of the data! 
+            if (event.origin.startsWith('https://play.starmourn.com')) { 
+                // The data was sent from your site.
+                // Data sent with postMessage is stored in event.data:
+                console.log(event.data); 
+            }
+        }); 
     </script>
 </head>
 <body>
