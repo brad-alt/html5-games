@@ -92,6 +92,9 @@
                 return;
             }
             
+            console.log(event.origin)
+            console.log(event.data.tableId)
+            
             window.document.getElementById(event.data.tableId).innerHTML = event.data.report    
 
             //}
