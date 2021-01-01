@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+    body { background-color:black;}
+
+    div.purpleHorizon {
+      border: 4px solid #045196;
+      background-color: #555555;
+      width: 350px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .divTable.purpleHorizon .divTableCell, .divTable.purpleHorizon .divTableHead {
+      border: 1px solid #555555;
+      padding: 5px 2px;
+    }
+    .divTable.purpleHorizon .divTableBody .divTableCell {
+      font-size: 13px;
+      font-weight: bold;
+      color: #FFFFFF;
+    }
+    .divTable.purpleHorizon .divTableRow:nth-child(even) {
+      background: #3185FC;
+    }
+    .divTable.purpleHorizon .divTableHeading {
+      background: #045196;
+      border-bottom: 4px solid #045196;
+    }
+    .divTable.purpleHorizon .divTableHeading .divTableHead {
+      font-size: 19px;
+      font-weight: bold;
+      color: #FFFFFF;
+      text-align: left;
+      border-left: 2px solid #045196;
+    }
+    .divTable.purpleHorizon .divTableHeading .divTableHead:first-child {
+      border-left: none;
+    }
+
+    .purpleHorizon .tableFootStyle {
+      font-size: 13px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background: #3185FC;
+      background: -moz-linear-gradient(top, #64a3fd 0%, #4591fc 66%, #3185FC 100%);
+      background: -webkit-linear-gradient(top, #64a3fd 0%, #4591fc 66%, #3185FC 100%);
+      background: linear-gradient(to bottom, #64a3fd 0%, #4591fc 66%, #3185FC 100%);
+      border-top: 1px solid #045196;
+    }
+    .purpleHorizon .tableFootStyle {
+      font-size: 13px;
+    }
+    .purpleHorizon .tableFootStyle .links {
+         text-align: right;
+    }
+    .purpleHorizon .tableFootStyle .links a{
+      display: inline-block;
+      background: #045196;
+      color: #FFFFFF;
+      padding: 2px 8px;
+      border-radius: 5px;
+    }
+    .purpleHorizon.outerTableFooter {
+      border-top: none;
+    }
+    .purpleHorizon.outerTableFooter .tableFootStyle {
+      padding: 3px 5px; 
+    }
+    /* DivTable.com */
+    .divTable{ display: table; }
+    .divTableRow { display: table-row; }
+    .divTableHeading { display: table-header-group;}
+    .divTableCell, .divTableHead { display: table-cell;}
+    .divTableHeading { display: table-header-group;}
+    .divTableFoot { display: table-footer-group;}
+    .divTableBody { display: table-row-group;}
+</style>
+</head>
+<body>
+
+<div class="divTable purpleHorizon" id="turret_report">
+
+</div>	
+
+<script>
+        window.addEventListener('message', event => {
+            //IMPORTANT: check the origin of the data! 
+            if (!event.origin.startsWith('https://play.starmourn.com')) {
+                return;
+            }
+            
+            window.document.getElementById(event.data.tableId).innerHTML = event.data.report    
+
+            //}
+        }); 
+
+</script>
+
+</body>
+</html>
