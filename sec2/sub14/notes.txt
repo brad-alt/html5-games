@@ -1,0 +1,15 @@
+-- parse JSON
+-- context2d.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+-- context2d.globalAlpha = ?
+-- context2d.fillText(text, x, y)
+-- context2d.clearRect()
+-- requestAnimationFrame(refresh_function())
+-- Date.now()
+-- canvas.addEventListener("mousedown", functionToCallOnEvent(evt))
+-- evt.clientX, clientY
+-- document.getElementById(name)
+-- canvas.getContext("2d")
+-- context.font="30px Verdana"
+-- Image.src (filename)
+-- Add Image.onload
+-- canvas.getBoundingClientRect()

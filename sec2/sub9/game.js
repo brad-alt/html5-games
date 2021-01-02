@@ -1,4 +1,4 @@
-/*jshint es5: true */
+/*jshint es6: true */
 
 class Game{
     constructor(){
