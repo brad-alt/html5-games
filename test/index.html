@@ -95,7 +95,68 @@
     
 <div class="divTable purpleHorizon" id="magnetize_report">
     
-</div>	
+</div>
+    
+<div class="divTable purpleHorizon" id="combat_report">
+    <div class="divTableHeading">
+        <div class="divTableHead">actions1</div>
+        <div class="divTableHead">actions2</div>
+        <div class="divTableHead">actions3</div>
+    </div>
+    
+    <div class="divTableBody">
+        <div class="divTableRow">
+            <div class="divTableCell" id="r1c1">none</div>
+            <div class="divTableCell" id="r1c2">none</div>
+            <div class="divTableCell" id="r1c3"></div>
+        </div>
+         <div class="divTableRow">
+            <div class="divTableCell" id="r2c1">none</div>
+            <div class="divTableCell" id="r2c2">none</div>
+            <div class="divTableCell" id="r2c3"></div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell" id="r3c1">none</div>
+            <div class="divTableCell" id="r3c2">none</div>
+            <div class="divTableCell" id="r3c3"></div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell" id="r4c1">none</div>
+            <div class="divTableCell" id="r4c2">none</div>
+            <div class="divTableCell" id="r4c3"></div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell" id="r5c1">none</div>
+            <div class="divTableCell" id="r5c2">none</div>
+            <div class="divTableCell" id="r5c3"></div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell" id="r6c1">none</div>
+            <div class="divTableCell" id="r6c2">none</div>
+            <div class="divTableCell" id="r6c3"></div>
+        </div>
+         <div class="divTableRow">
+            <div class="divTableCell" id="r7c1">none</div>
+            <div class="divTableCell" id="r7c2">none</div>
+            <div class="divTableCell" id="r7c3"></div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell" id="r8c1">none</div>
+            <div class="divTableCell" id="r8c2">none</div>
+            <div class="divTableCell" id="r8c3"></div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell" id="r9c1">none</div>
+            <div class="divTableCell" id="r9c2">none</div>
+            <div class="divTableCell" id="r9c3"></div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell" id="r10c1">none</div>
+            <div class="divTableCell" id="r10c2">none</div>
+            <div class="divTableCell" id="r10c3"></div>
+        </div>        
+    </div>
+</div>
 
 <script>
         window.addEventListener('message', event => {
@@ -104,13 +165,52 @@
                 return;
             }
             
-            console.log(event.origin)
-            console.log(event.data.tableId)
+            if (event.data.messageType == "initialize") start();
+            
+            if (event.data.messageType == "combatEntry") writeEntry(event.data.combatEntry)
             
             window.document.getElementById(event.data.tableId).innerHTML = event.data.report    
 
-            //}
-        }); 
+
+        });
+    
+        start = function(){
+            rowNum = 1
+            counter = 1
+            testScroll()
+        }
+    
+        testScroll = function(){
+            
+            writeEntry("test" + counter)
+            counter += 1
+            setTimeout(function(){ testScroll() }, 1000);
+            
+        }
+        
+        writeEntry = function(value) {
+            if (rowNum > 10) {
+                shiftThenWrite(value);
+                return;
+            }
+            
+            window.document.getElementById("r" + rowNum + "c3").innerHTML = value    
+            
+            rowNum += 1
+        }
+        
+        
+        shiftThenWrite = function(value){
+            var i;
+            for (i = 1; i <= 10; i++) {
+                window.document.getElementById("r" + i + "c1").innerHTML = window.document.getElementById("r" + i + "c2").innerHTML
+                window.document.getElementById("r" + i + "c2").innerHTML = window.document.getElementById("r" + i + "c3").innerHTML
+                window.document.getElementById("r" + i + "c3").innerHTML = ""
+            }
+            
+            rowNum = 1
+            writeEntry(value)   
+        }
 
 </script>
 
