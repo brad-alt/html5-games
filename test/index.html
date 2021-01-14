@@ -177,7 +177,15 @@
         start = function(){
             rowNum = 1
             counter = 1
-            //testScroll()
+            
+            var i;
+
+            for (i = 1; i <= 10; i++) {
+                window.document.getElementById("r" + i + "c1").innerHTML = "none"
+                window.document.getElementById("r" + i + "c2").innerHTML = "none"
+                window.document.getElementById("r" + i + "c3").innerHTML = ""
+            }
+            
         }
     
         testScroll = function(){
